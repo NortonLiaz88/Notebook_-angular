@@ -5,6 +5,7 @@ import { RouterModule } from "@angular/router"
 import { BreadCrumbComponent } from './components/bread-crumb/bread-crumb.component';
 import { PageHeaderComponent } from './components/page-header/page-header.component';
 import { FormFielErrorComponent } from './components/form-fiel-error/form-fiel-error.component';
+import { ServerErrorMessagesComponent } from './components/server-error-messages/server-error-messages.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { FormFielErrorComponent } from './components/form-fiel-error/form-fiel-e
   declarations: [
     BreadCrumbComponent,
     PageHeaderComponent,
-    FormFielErrorComponent],
+    FormFielErrorComponent,
+    ServerErrorMessagesComponent],
   exports: [
     // shared modules
     CommonModule,
@@ -24,7 +26,8 @@ import { FormFielErrorComponent } from './components/form-fiel-error/form-fiel-e
     //shared components
     BreadCrumbComponent,
     PageHeaderComponent,
-    FormFielErrorComponent
+    FormFielErrorComponent,
+    ServerErrorMessagesComponent
   ]
 })
 export class SharedModule { }

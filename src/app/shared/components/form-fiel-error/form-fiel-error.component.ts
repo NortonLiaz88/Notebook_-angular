@@ -41,12 +41,12 @@ export class FormFielErrorComponent implements OnInit {
 
     else if(this.formControl.errors.minlenght){
       const requiredLength = this.formControl.errors.minlenght.requiredLength;
-      return `deve ter no minimo${requiredLength}caracteres`;
+      return `deve ter no minimo${requiredLength} caracteres`;
     }
       
     else if(this.formControl.errors.maxlenght){
       const requiredLength = this.formControl.errors.maxlenght.requiredLength;
-      return `deve ter no maximo${requiredLength}caracteres`;
+      return `deve ter no maximo${requiredLength} caracteres`;
     }
 
   }
