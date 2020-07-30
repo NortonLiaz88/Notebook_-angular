@@ -34,9 +34,9 @@
             <option *ngFor="let option of typeOptions" [value]="option.value">{{ option.text }}</option>
           </select>
 
-          <div class="text-danger" *ngIf="resourceForm.get('type').invalid && resourceForm.get('type').touched">
-            <div *ngIf="resourceForm.get('type').errors.required">dado obrigatório</div>
-          </div>
+          <app-form-fiel-error [form-control] ="resourceForm.get('type')"></app-form-fiel-error>
+
+
         </div>
 
         <!-- name -->
@@ -44,11 +44,14 @@
           <label for="name">Lançamento</label>
           <input type="text" class="form-control" id="name" formControlName="name">
 
-          <div class="text-danger" *ngIf="resourceForm.get('name').invalid && resourceForm.get('name').touched">
-            <div *ngIf="resourceForm.get('name').errors.required">dado obrigatório</div>
-            <div *ngIf="resourceForm.get('name').errors.minlength">deve ter no mínimo 2 caracteres</div>
-          </div>
+          <app-form-fiel-error [form-control] ="resourceForm.get('name')"></app-form-fiel-error>
+
+          
+          <pre>{{resourceForm.get('name').errors | json}}</pre>
+          
         </div>
+        
+        
 
         <!-- amount -->
         <div class="form-group col-md-3">
@@ -60,9 +63,7 @@
             <input [imask]="imaskConfig" type="text" class="form-control text-right" id="amount" formControlName="amount">
           </div>
 
-          <div class="text-danger" *ngIf="resourceForm.get('amount').invalid && resourceForm.get('amount').touched">
-            <div *ngIf="resourceForm.get('amount').errors.required">dado obrigatório</div>
-          </div>
+          <app-form-fiel-error [form-control] ="resourceForm.get('amount')"></app-form-fiel-error>
         </div>
 
         <!-- date -->
@@ -77,9 +78,7 @@
             >
           </p-calendar>
 
-          <div class="text-danger" *ngIf="resourceForm.get('date').invalid && resourceForm.get('date').touched">
-            <div *ngIf="resourceForm.get('date').errors.required">dado obrigatório</div>
-          </div>
+          <app-form-fiel-error [form-control] ="resourceForm.get('date')"></app-form-fiel-error>
         </div>
       </div>
 
