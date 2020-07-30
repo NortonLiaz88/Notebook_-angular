@@ -4,20 +4,16 @@ import { BaseResourceListComponent } from "../../../shared/components/base-resou
 
 import { Category } from "../shared/category.model";
 import { CategoryService } from "../shared/category.service";
-import { BaseResourceService } from 'src/app/shared/services/base-resource.service';
 
 @Component({
   selector: 'app-category-list',
   templateUrl: './category-list.component.html',
   styleUrls: ['./category-list.component.css']
 })
-export class CategoryListComponent extends BaseResourceListComponent<Category>{
+export class CategoryListComponent extends BaseResourceListComponent<Category> {
 
-
-  
-  constructor(private categoryService: CategoryService) {
+  constructor(private categoryService: CategoryService) { 
     super(categoryService);
-   }
-
+  }
 
 }

@@ -16,14 +16,13 @@ export abstract class BaseResourceService<T extends BaseResourceModel> {
     protected injector: Injector, 
     protected jsonDataToResourceFn: (jsonData: any) => T
   ){
-    this.http = injector.get(HttpClient);
+    this.http = injector.get(HttpClient);    
   }
 
   getAll(): Observable<T[]> {
     return this.http.get(this.apiPath).pipe(
       map(this.jsonDataToResources.bind(this)),
       catchError(this.handleError)
-      
     )
   }
 
@@ -32,13 +31,12 @@ export abstract class BaseResourceService<T extends BaseResourceModel> {
 
     return this.http.get(url).pipe(
       map(this.jsonDataToResource.bind(this)),
-      catchError(this.handleError),
+      catchError(this.handleError)      
     )
   }
 
   create(resource: T): Observable<T> {
     return this.http.post(this.apiPath, resource).pipe(
-      
       map(this.jsonDataToResource.bind(this)),
       catchError(this.handleError)
     )
@@ -48,7 +46,6 @@ export abstract class BaseResourceService<T extends BaseResourceModel> {
     const url = `${this.apiPath}/${resource.id}`;
 
     return this.http.put(url, resource).pipe(
-      
       map(() => resource),
       catchError(this.handleError)
     )
@@ -58,7 +55,6 @@ export abstract class BaseResourceService<T extends BaseResourceModel> {
     const url = `${this.apiPath}/${id}`;
 
     return this.http.delete(url).pipe(
-
       map(() => null),
       catchError(this.handleError)
     )
@@ -71,7 +67,7 @@ export abstract class BaseResourceService<T extends BaseResourceModel> {
   protected jsonDataToResources(jsonData: any[]): T[] {
     const resources: T[] = [];
     jsonData.forEach(
-      element => resources.push(this.jsonDataToResourceFn(element))
+      element => resources.push( this.jsonDataToResourceFn(element) )
     );
     return resources;
   }
